@@ -1,6 +1,5 @@
 import './App.css';
 import {useEffect, useState} from "react";
-import axios from 'axios';
 
 /**
  * function name `App` creates state of 
@@ -14,6 +13,7 @@ export default function App() {
   //create two states for longitude and latitude
   const [lat, setLat] = useState([]);
   const [long, setLong] = useState([]);
+  const [data, setData] = useState([]);
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(function(position){
       setLat(position.coords.latitude);
@@ -29,4 +29,3 @@ export default function App() {
     </div>
   );
 }
-
