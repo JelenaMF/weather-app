@@ -9,13 +9,14 @@ import {useEffect, useState} from "react";
  * @returns state of long and lat and sets 
  */
 
+console.log(process.env.REACT_APP_API_URL);
+
 export default function App() {
   //create two states for longitude and latitude
   const [lat, setLat] = useState([]);
   const [long, setLong] = useState([]);
   //const [data, setData] = useState([]);
-  console.log(process.env.REACT_APP_API_KEY);
-  console.log(process.env.REACT_APP_API_URL);
+  
   useEffect(() => {
     const fetchData = async () => {
       navigator.geolocation.getCurrentPosition(function(position) {
