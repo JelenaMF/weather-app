@@ -9,46 +9,18 @@ import {useEffect, useState} from "react";
  * @returns state of long and lat and sets 
  */
 
-console.log(process.env.REACT_APP_API_URL);
 
 export default function App() {
-  //create two states for longitude and latitude
-  const [lat, setLat] = useState([]);
-  const [long, setLong] = useState([]);
-  //const [data, setData] = useState([]);
   
-  useEffect(() => {
-    const fetchData = async () => {
-      navigator.geolocation.getCurrentPosition(function(position) {
-        setLat(position.coords.latitude);
-        setLong(position.coords.longitude);
-      });
-
-      await fetch(`${process.env.REACT_APP_API_URL}/weather?lat=${lat}&lon=${long}&units=metric&APPID=${process.env.REACT_APP_API_KEY}`)
-      .then(res => console.log(res))
-      
-    }
-    fetchData();
-  }, [lat,long])
   
   return (
     <div className="App">
-      <header className="header">
-        <h1>The Weather App</h1>
-        <input type="search" className="input" placeholder="Search..." />
-        <button>Search</button>
-      </header>
       <main>
-        <div className="group">
-          <strong>Location: </strong>
-          <span></span>
-        </div>
-        <div className="group">
-          <strong>Temperature:</strong>
-          <span>c&#176;</span>
+        <div className="search-box">
+          <input type="text" className="search-bar" placeholder="Search" />
         </div>
       </main>
-     
     </div>
+      
   );
 }
